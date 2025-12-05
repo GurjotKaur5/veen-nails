@@ -1,215 +1,483 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Veen Nails | Parveen Kaur Bhangu</title>
+  <meta charset="UTF-8" />
+  <title>Veen Nails | Parveen Kaur Bhangu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Parveen Kaur Bhangu · Nail Artist | Winnipeg, MB · Where beauty meets femininity. Book via WhatsApp, Instagram, TikTok or find my location on Google Maps.">
 
-<style>
+  <style>
+    :root {
+      /* LIGHT THEME */
+      --bg: #ffeef7;
+      --bg-gradient-top: #fff5fb;
+      --bg-gradient-bottom: #ffdce9;
+      --card: #fff9fd;
+      --card-bottom: #ffe6f1;
 
-/* --------- COLOR VARIABLES --------- */
-:root {
-    --soft-pink: #fce7ef;
-    --soft-purple: #8c4a6e;
-    --button-bg: #f9e9f0;
-    --button-hover-bg: #f3d9e4;
-    --shadow: rgba(0, 0, 0, 0.08);
-}
+      --accent: #ff9ecb;
+      --accent-soft: #ffd0e7;
+      --accent-strong: #ff71b1;
 
-/* --------- GLOBAL RESET --------- */
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--soft-pink);
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    min-height: 100vh;
-    padding: 20px 0;
-    text-align: center;
-}
+      --text-main: #2b1420;
+      --text-soft: #7a5267;
+      --border-soft: #f2cbdc;
 
-/* --------- PAGE LOAD FADE-UP --------- */
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+      --btn-bg: #fff5fb;
+      --btn-border: #f1c5da;
+      --btn-hover: #ffe3f1;
+
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.12);
+      --icon-bg: #ffd7ea;
+      --icon-color: #9a466f;
+
+      --footer-bg: #ffe2f0;
+      --toggle-bg: #fbe0f0;
+      --toggle-knob: #ffffff;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    body.dark {
+      /* DARK THEME OVERRIDES */
+      --bg: #120912;
+      --bg-gradient-top: #20101f;
+      --bg-gradient-bottom: #0a050a;
+      --card: #1b111a;
+      --card-bottom: #140a13;
+
+      --accent: #ff9ed6;
+      --accent-soft: #3a2135;
+      --accent-strong: #ff7ec5;
+
+      --text-main: #fbe8f5;
+      --text-soft: #c99bc1;
+      --border-soft: #3c2438;
+
+      --btn-bg: #211320;
+      --btn-border: #3a2538;
+      --btn-hover: #2a1928;
+
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.8);
+      --icon-bg: #3a2235;
+      --icon-color: #ffb4e0;
+
+      --footer-bg: #1a1019;
+      --toggle-bg: #321b2f;
+      --toggle-knob: #ffe4f5;
     }
-}
 
-/* --------- MAIN CONTAINER --------- */
-.container {
-    width: 90%;
-    max-width: 400px;
-    background: white;
-    padding: 30px;
-    border-radius: 30px;
-    box-shadow: 0 8px 30px var(--shadow);
-    animation: fadeUp 0.7s ease-out;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
 
-/* --------- LOGO WITH BREATHING ANIMATION --------- */
-@keyframes logoBreath {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.04); }
-}
-
-.logo img {
-    width: 140px;
-    border-radius: 50%;
-    animation: logoBreath 4s ease-in-out infinite;
-    transition: 0.3s ease;
-}
-
-.logo img:hover {
-    transform: scale(1.1);
-}
-
-/* --------- TEXT --------- */
-h2 {
-    margin-top: 15px;
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--soft-purple);
-}
-
-p {
-    margin-top: -5px;
-    font-size: 14px;
-    opacity: 0.8;
-    color: #7a5568;
-}
-
-/* --------- SOCIAL ICONS --------- */
-.social-icons {
-    margin-top: 25px;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-
-/* Pop-in animation */
-@keyframes iconPop {
-    0% { opacity: 0; transform: scale(0.7) translateY(10px); }
-    100% { opacity: 1; transform: scale(1) translateY(0); }
-}
-
-.social-icons a img {
-    width: 40px;
-    height: 40px;
-    padding: 12px;
-    background: #FFFFFF;
-    border-radius: 50%;
-    box-shadow: 0 5px 15px var(--shadow);
-    cursor: pointer;
-    transition: 0.3s;
-    opacity: 0;
-}
-
-/* Delay each icon pop */
-.social-icons a:nth-child(1) img { animation: iconPop 0.5s 0.2s ease-out forwards; }
-.social-icons a:nth-child(2) img { animation: iconPop 0.5s 0.35s ease-out forwards; }
-.social-icons a:nth-child(3) img { animation: iconPop 0.5s 0.5s ease-out forwards; }
-
-.social-icons a img:hover {
-    transform: scale(1.15);
-}
-
-/* --------- BUTTONS --------- */
-.link-btn {
-    width: 100%;
-    display: block;
-    background: var(--button-bg);
-    color: var(--soft-purple);
-    padding: 15px;
-    margin: 15px 0;
-    border-radius: 12px;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 500;
-    transition: 0.3s;
-    box-shadow: 0 5px 12px var(--shadow);
-}
-
-.link-btn:hover {
-    background: var(--button-hover-bg);
-    transform: translateY(-2px);
-    box-shadow: 0 9px 20px rgba(0,0,0,0.14);
-}
-
-/* --------- DARK MODE --------- */
-@media (prefers-color-scheme: dark) {
     body {
-        background: #1A1416;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      background: radial-gradient(circle at top, var(--bg-gradient-top), var(--bg-gradient-bottom));
+      color: var(--text-main);
+      padding: 18px;
+      transition: background 0.3s ease, color 0.3s ease;
     }
-    .container {
-        background: #2A2124;
+
+    .frame {
+      width: 100%;
+      max-width: 430px;
+      background: var(--bg);
+      border-radius: 28px;
+      box-shadow:
+        var(--shadow-soft),
+        0 0 0 1px rgba(255, 255, 255, 0.3);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(255,255,255,0.2);
     }
-    h2, p {
-        color: #FFD9EC;
+
+    .header {
+      position: relative;
+      padding: 24px 20px 16px;
+      text-align: center;
+      background: linear-gradient(180deg, var(--card), var(--card-bottom));
     }
+
+    .theme-toggle {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--text-soft);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .toggle-track {
+      width: 40px;
+      height: 20px;
+      border-radius: 999px;
+      background: var(--toggle-bg);
+      display: flex;
+      align-items: center;
+      padding: 2px;
+      transition: background 0.2s ease;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.03);
+    }
+
+    .toggle-knob {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--toggle-knob);
+      transform: translateX(0);
+      transition: transform 0.2s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    body.dark .toggle-knob {
+      transform: translateX(18px);
+    }
+
+    .logo-wrapper {
+      width: 96px;
+      height: 96px;
+      margin: 4px auto 10px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid rgba(255,255,255,0.8);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.20);
+      background: #fbe6f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .logo-light { display: block; }
+    .logo-dark { display: none; }
+
+    body.dark .logo-light { display: none; }
+    body.dark .logo-dark { display: block; }
+
+    .name {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    .role {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      margin-bottom: 6px;
+    }
+
+    .tagline {
+      font-size: 12px;
+      color: var(--text-soft);
+      margin-bottom: 10px;
+    }
+
+    .location {
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .social-row-top {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .social-badge {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.10);
+      color: var(--icon-color);
+    }
+
+    .social-badge svg {
+      width: 16px;
+      height: 16px;
+      display: block;
+    }
+
+    .content {
+      padding: 18px 14px 18px;
+      background: linear-gradient(180deg, var(--bg), var(--card-bottom));
+      flex: 1;
+    }
+
+    .hint {
+      font-size: 11px;
+      color: var(--text-soft);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .btn-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
     .link-btn {
-        background: #3a2a31;
-        color: #FFD9EC;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 13px;
+      border-radius: 999px;
+      background: var(--btn-bg);
+      border: 1px solid var(--btn-border);
+      text-decoration: none;
+      color: var(--text-main);
+      font-size: 13px;
+      box-shadow: 0 10px 18px rgba(0,0,0,0.06);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, border-color 0.12s ease;
     }
+
     .link-btn:hover {
-        background: #513943;
+      background: var(--btn-hover);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.12);
     }
-}
 
-</style>
+    .link-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 5px 14px rgba(0,0,0,0.14);
+    }
+
+    .icon-circle {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--icon-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--icon-color);
+    }
+
+    .icon-circle svg {
+      width: 18px;
+      height: 18px;
+      display: block;
+    }
+
+    .btn-text-main {
+      font-weight: 600;
+    }
+
+    .btn-text-sub {
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .footer {
+      font-size: 10px;
+      text-align: center;
+      color: var(--text-soft);
+      padding: 10px 12px 14px;
+      background: var(--footer-bg);
+      border-top: 1px solid rgba(0,0,0,0.03);
+    }
+
+    @media (min-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <main class="frame">
+    <header class="header">
+      <div class="theme-toggle" id="themeToggle">
+        <span>Light</span>
+        <div class="toggle-track">
+          <div class="toggle-knob"></div>
+        </div>
+        <span>Dark</span>
+      </div>
 
-<div class="container">
+      <div class="logo-wrapper">
+        <!-- Light mode logo -->
+        <img src="logo-light.png" alt="Veen Nails Logo" class="logo-img logo-light" />
+        <!-- Dark mode logo -->
+        <img src="logo-dark.png" alt="Veen Nails Logo Dark" class="logo-img logo-dark" />
+      </div>
 
-    <!-- LOGO CLICKABLE -->
-    <div class="logo">
-        <a href="logo-light.png" target="_blank">
-            <img src="logo-light.png" id="mainLogo" alt="Veen Nails Logo">
+      <div class="name">Parveen Kaur Bhangu</div>
+      <div class="role">Nail Artist · Winnipeg, MB</div>
+      <div class="tagline">Where beauty meets femininity. 💅✨</div>
+      <div class="location">📍 Templeton Ave · Winnipeg, Canada</div>
+
+      <div class="social-row-top">
+        <!-- Instagram mini icon -->
+        <div class="social-badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="5" y="5" width="14" height="14" rx="4" ry="4" fill="none" stroke="currentColor" stroke-width="1.7"/>
+            <circle cx="12" cy="12" r="3.3" fill="none" stroke="currentColor" stroke-width="1.7"/>
+            <circle cx="16.2" cy="7.8" r="1.1" fill="currentColor"/>
+          </svg>
+        </div>
+
+        <!-- WhatsApp mini icon -->
+        <div class="social-badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 4.1a7.1 7.1 0 0 0-6.1 10.7L5 20l5.3-0.9A7.1 7.1 0 1 0 12 4.1z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+            <path d="M10.2 9.3c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.2-.7.7-.7 1.7s.7 2 0.8 2.1.1.3.3.5.9 1.3 2.1 1.8 1.3.4 1.8.4.9-.1 1.2-.5.6-.9.7-1.1c.1-.2 0-.4-.1-.5s-.6-.3-1.2-.6-.7-.3-.9.1-.5.6-.6.7-.3.2-.5.1-1-.4-1.7-1.1-1-1.3-1.1-1.5.1-.3.1-.4a1 1 0 0 0 0-.5z" fill="currentColor"/>
+          </svg>
+        </div>
+
+        <!-- TikTok mini icon -->
+        <div class="social-badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M15.5 5.1c.5.7 1.1 1.3 1.8 1.7a4 4 0 0 0 1.3.5v2.1a5.4 5.4 0 0 1-3.1-1v5.9A4.7 4.7 0 1 1 11 9.7v2.2a2.2 2.2 0 1 0 1.6 2.1V4h2.9v1.1z" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+    </header>
+
+    <section class="content">
+      <p class="hint">Tap any button below to connect with me on your favourite platform.</p>
+
+      <div class="btn-list">
+
+        <!-- WhatsApp -->
+        <a
+          class="link-btn"
+          href="https://wa.me/12048877076"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 4.1a7.1 7.1 0 0 0-6.1 10.7L5 20l5.3-0.9A7.1 7.1 0 1 0 12 4.1z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+              <path d="M10.2 9.3c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.2-.7.7-.7 1.7s.7 2 0.8 2.1.1.3.3.5.9 1.3 2.1 1.8 1.3.4 1.8.4.9-.1 1.2-.5.6-.9.7-1.1c.1-.2 0-.4-.1-.5s-.6-.3-1.2-.6-.7-.3-.9.1-.5.6-.6.7-.3.2-.5.1-1-.4-1.7-1.1-1-1.3-1.1-1.5.1-.3.1-.4a1 1 0 0 0 0-.5z" fill="currentColor"/>
+            </svg>
+          </div>
+          <div>
+            <div class="btn-text-main">WhatsApp</div>
+            <div class="btn-text-sub">Chat or book your nail appointment</div>
+          </div>
         </a>
-    </div>
 
-    <h2>Parveen Kaur Bhangu</h2>
-    <p>💅 Nail Artist | Winnipeg, MB ✨<br>Where beauty meets femininity.</p>
-
-    <!-- SOCIAL ICONS -->
-    <div class="social-icons">
-
-        <a href="https://www.instagram.com/veen.nails" target="_blank">
-            <img src="icons/instagram.png" alt="Instagram">
+        <!-- Instagram -->
+        <a
+          class="link-btn"
+          href="https://www.instagram.com/veen.nails/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="5" y="5" width="14" height="14" rx="4" ry="4" fill="none" stroke="currentColor" stroke-width="1.7"/>
+              <circle cx="12" cy="12" r="3.3" fill="none" stroke="currentColor" stroke-width="1.7"/>
+              <circle cx="16.2" cy="7.8" r="1.1" fill="currentColor"/>
+            </svg>
+          </div>
+          <div>
+            <div class="btn-text-main">Instagram</div>
+            <div class="btn-text-sub">See my latest sets & designs</div>
+          </div>
         </a>
 
-        <a href="https://wa.me/12048877076" target="_blank">
-            <img src="icons/whatsapp.png" alt="WhatsApp">
+        <!-- TikTok -->
+        <a
+          class="link-btn"
+          href="https://www.tiktok.com/@veen.nails"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M15.5 5.1c.5.7 1.1 1.3 1.8 1.7a4 4 0 0 0 1.3.5v2.1a5.4 5.4 0 0 1-3.1-1v5.9A4.7 4.7 0 1 1 11 9.7v2.2a2.2 2.2 0 1 0 1.6 2.1V4h2.9v1.1z" fill="currentColor"/>
+            </svg>
+          </div>
+          <div>
+            <div class="btn-text-main">TikTok</div>
+            <div class="btn-text-sub">Watch nail content & videos</div>
+          </div>
         </a>
 
-        <a href="https://www.tiktok.com/@veen.nails" target="_blank">
-            <img src="icons/tiktok.png" alt="TikTok">
+        <!-- Google Maps Location -->
+        <a
+          class="link-btn"
+          href="https://maps.app.goo.gl/AkjiqG6982S7EnAs9"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 4.2a5 5 0 0 0-5 5c0 3.2 3.3 6.8 4.5 8a0.7 0.7 0 0 0 1 0c1.2-1.2 4.5-4.8 4.5-8a5 5 0 0 0-5-5z" fill="none" stroke="currentColor" stroke-width="1.7"/>
+              <circle cx="12" cy="9.4" r="1.8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div>
+            <div class="btn-text-main">Explore location on Google Maps</div>
+            <div class="btn-text-sub">1360 Templeton Ave Unit 803, Winnipeg</div>
+          </div>
         </a>
 
-    </div>
+      </div>
+    </section>
 
-    <!-- BUTTONS -->
-    <a href="https://wa.me/12048877076" class="link-btn">WhatsApp</a>
-    <a href="https://www.instagram.com/veen.nails" class="link-btn">Instagram</a>
-    <a href="https://www.tiktok.com/@veen.nails" class="link-btn">TikTok</a>
-    <a href="https://maps.app.goo.gl/AkjiqG6982S7EnAs9" class="link-btn">Explore Location on Google Maps</a>
+    <footer class="footer">
+      © <span id="year"></span> Veen Nails · Parveen Kaur Bhangu
+    </footer>
+  </main>
 
-</div>
+  <script>
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-<!-- DARK MODE LOGO SWITCH -->
-<script>
-const logo = document.getElementById("mainLogo");
-if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    logo.src = "logo-dark.png";
-}
-</script>
+    // Theme handling
+    const body = document.body;
+    const toggle = document.getElementById("themeToggle");
 
+    function setTheme(mode) {
+      if (mode === "dark") {
+        body.classList.add("dark");
+      } else {
+        body.classList.remove("dark");
+      }
+      localStorage.setItem("veenTheme", mode);
+    }
+
+    // Load saved theme or system preference
+    (function () {
+      const saved = localStorage.getItem("veenTheme");
+      if (saved === "dark" || saved === "light") {
+        setTheme(saved);
+      } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        setTheme("dark");
+      }
+    })();
+
+    toggle.addEventListener("click", () => {
+      const isDark = body.classList.contains("dark");
+      setTheme(isDark ? "light" : "dark");
+    });
+  </script>
 </body>
 </html>
